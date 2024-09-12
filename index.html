@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Pig Game by Suad</title>
+  </head>
+  <body>
+    <div class="help">
+      <button class="helpbtn">?</button>
+      <p class="help-text">View rules?</p>
+    </div>
+    <div class="welcome-modal hide">
+      <h1>WELCOME TO THE PIG GAME 🤩</h1>
+    </div>
+    <div class="game">
+      <div class="img">
+        <img class="diceImg hide" src="1.png" alt="dicePicture" />
+      </div>
+      <div class="player1 card playeractive">
+        <h1 class="name1 name">PLAYER 1</h1>
+        <h1 class="totalscore-1 total">0</h1>
+        <div class="current">
+          <p class="crt">CURRENT</p>
+          <p class="currentscore-1">0</p>
+        </div>
+      </div>
+      <button class="button restartbtn">🔄️ NEW GAME</button>
+      <div class="btn-container">
+        <button class="button rolldicebtn">🎲 ROLL DICE</button>
+        <button class="button holdbtn">📥 HOLD</button>
+      </div>
+      <div class="player2 card">
+        <h1 class="name2 name">PLAYER 2</h1>
+        <h1 class="totalscore-2 total">0</h1>
+        <div class="current">
+          <p class="crt">CURRENT</p>
+          <p class="currentscore-2">0</p>
+        </div>
+      </div>
+    </div>
+    <div class="overlay hide"></div>
+    <div class="winner-modal hide">
+      <h2>CONGRATULATIONS 🎊</h2>
+      <br />
+      <h3 class="win-name">Player 1 won this round</h3>
+      <h3 class="sum-total">With a sum-total of 100 points</h3>
+    </div>
+    <video class="confetti hide">
+      <source src="confetti2.webm" type="video/webm" />
+    </video>
+
+    <div class="rules hidden">
+      <div class="top">
+        <h2 class="title">RULES OF THE GAME 📜</h2>
+        <button class="close">&times;</button>
+      </div>
+      <p>1. Player 1 begins by clicking the "Roll Dice 🎲" button</p>
+      <p>
+        2. If the dice shows 2-6, that number will be added to the active
+        player's current score. If it shows 1, the current score of the active
+        player resets to 0 their turn ends, and it's automatically switched to
+        the next player.
+      </p>
+      <p>
+        3. Clicking on the "Hold 📥" button adds the active player's current
+        score to their total score and the turn switches to the next player
+        turns.
+      </p>
+      <p>4. The player to reach or exceed 80 points wins the game 🎉.</p>
+      <p>5. Click on the "New Game" button to restart the game .</p>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

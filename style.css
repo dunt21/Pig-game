@@ -1,0 +1,515 @@
+@import url("https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(to top left, #2f9bde, #d82bbc);
+  background-size: cover;
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Merienda";
+  position: relative;
+  z-index: 1;
+}
+.welcome-modal {
+  position: absolute;
+  z-index: 3;
+  font-size: 2.5rem;
+  color: #e6e6fa;
+  text-align: center;
+}
+.help {
+  display: inline-block;
+}
+
+.help-text {
+  position: absolute;
+  z-index: 2;
+  top: 2.3rem;
+  right: 5.5rem;
+  font-size: 1.2rem;
+  border-radius: 5rem;
+  background-color: white;
+  padding: 0.5rem 1rem;
+  transform: translateY(-16%);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s linear;
+}
+.helpbtn {
+  position: absolute;
+  top: 0.3rem;
+  right: 3.5rem;
+  transform: translate(80%, 70%);
+  font-family: inherit;
+  font-size: 1.5rem;
+  padding: 0.1rem 0.9rem;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+  /* transform: translate(); */
+}
+
+.helpbtn:hover + .help-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.helpbtn:active {
+  transform: translate(31px, 85%);
+}
+
+.game {
+  display: flex;
+  flex-direction: row;
+  width: 100rem;
+  height: 55rem;
+  position: relative;
+  text-align: center;
+  background-color: rgba(235, 239, 239, 0.352);
+  backdrop-filter: blur(200px);
+  box-shadow: 0 5px 30px black;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card {
+  flex: 50%;
+  padding: 5rem;
+  /* position: relative;
+  top: 1rem; */
+  display: flex;
+  flex-direction: column;
+  transition: all 0.75s;
+}
+
+.name1,
+.name2 {
+  padding-bottom: 1rem;
+  font-size: 4rem;
+}
+
+.playeractive {
+  background-color: rgba(255, 255, 255, 0.419);
+}
+
+.playeractive .name {
+  font-weight: 700px;
+}
+
+.playeractive .total {
+  font-weight: 500px;
+}
+
+.playeractive .current {
+  opacity: 1;
+}
+
+.totalscore-1,
+.totalscore-2 {
+  font-size: 6rem;
+  margin-bottom: 15rem;
+  color: rgb(47, 46, 46);
+}
+
+.crt {
+  padding-bottom: 1rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.currentscore-1,
+.currentscore-2 {
+  font-size: 2.8rem;
+}
+
+.current {
+  /* border: 2px solid rgb(28, 246, 246); */
+  /* width: 50%; */
+  /* position: relative; */
+
+  padding: 1rem 2rem;
+  margin: 0 auto;
+  border-radius: 8px;
+  background-color: rgb(124 103 206);
+  opacity: 0.8;
+  color: rgb(243, 230, 230);
+  transition: all 0.75s;
+}
+
+.button {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: inherit;
+  font-size: 1.5rem;
+  padding: 0.8rem 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.516);
+  background-color: rgba(255, 255, 255, 0.378);
+  backdrop-filter: blur(20px);
+  border-radius: 2.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.button::first-letter {
+  font-size: 1.8rem;
+  display: inline-block;
+  margin-right: 0.7rem;
+}
+button:active {
+  transform: translate(-50%, 5px);
+}
+
+button:focus {
+  outline: none;
+}
+.restartbtn {
+  top: 3rem;
+}
+.rolldicebtn {
+  top: 35rem;
+}
+
+.holdbtn {
+  top: 41rem;
+}
+
+.diceImg {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  left: 50%;
+  top: 24%;
+  transform: translateX(-50%);
+}
+
+.hide {
+  display: none;
+}
+
+.playerwinner {
+  background-color: #5ff95fda;
+}
+
+.playerwinner .name {
+  font-weight: 700;
+  color: rgb(124 103 206);
+}
+
+.playerwinner .total {
+  font-weight: 700;
+  color: rgb(124 103 206);
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.512);
+  z-index: 2;
+  position: absolute;
+  backdrop-filter: blur(15px);
+  cursor: pointer;
+}
+
+.winner-modal {
+  position: absolute;
+  font-size: 3rem;
+  color: #e6e6fa;
+  z-index: 5;
+  opacity: 1;
+  font-weight: 700;
+  text-align: center;
+}
+
+.confetti {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  z-index: 4;
+}
+.rules {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: fixed;
+  border: 2px solid black;
+  width: 50%;
+  height: 50vh;
+  background-color: white;
+  font-size: 1.5rem;
+  padding: 2.5rem;
+  overflow: auto;
+  line-height: 2;
+  word-wrap: break-word;
+  z-index: 3;
+  /* box-sizing: border-box; */
+}
+
+.close {
+  position: absolute;
+  right: 1rem;
+  top: 0rem;
+  font-size: 4rem;
+  cursor: pointer;
+  border: 0;
+  background-color: white;
+}
+
+.close:active {
+  transform: translate(2px, 10%);
+}
+
+h2 {
+  text-align: center;
+}
+.hidden {
+  display: none;
+}
+
+@media (max-width: 1211px) {
+  body {
+    width: 100vw;
+    height: 100vh;
+  }
+  .helpbtn {
+    font-size: 1.3rem;
+  }
+
+  .help-text {
+    font-size: 1.1rem;
+  }
+
+  .game {
+    width: 50rem;
+    height: 40rem;
+    overflow: visible;
+  }
+
+  .name1,
+  .name2 {
+    font-size: 2.5rem;
+  }
+
+  .totalscore-1,
+  .totalscore-2 {
+    font-size: 4rem;
+    margin-bottom: 10rem;
+  }
+
+  .crt {
+    font-size: 1.4rem;
+  }
+
+  .currentscore-2,
+  .currentscore-1 {
+    font-size: 1.8rem;
+  }
+
+  .current {
+    width: 10rem;
+  }
+
+  .button {
+    font-size: 1.1rem;
+    padding: 2px 15px;
+    background-color: rgba(255, 255, 255, 0.792);
+    /* width: 15rem; */
+    margin: 0;
+    border-radius: 3.5rem;
+  }
+
+  .restartbtn {
+    top: 1.5rem;
+  }
+
+  .holdbtn {
+    top: 28rem;
+  }
+  .rolldicebtn {
+    top: 23rem;
+  }
+
+  .rules {
+    width: 50%;
+    font-size: 1.2rem;
+  }
+
+  .winner-modal {
+    font-size: 2.5rem;
+  }
+
+  .welcome-modal {
+    font-size: 1.8rem;
+  }
+
+  .diceImg {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 686px) {
+  body {
+    width: 100vw;
+    height: auto;
+    align-items: center;
+  }
+
+  .game {
+    position: relative;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 70%;
+    height: auto;
+    overflow: visible;
+  }
+
+  .card {
+    padding: 1.5rem;
+    justify-content: space-around;
+  }
+  .name1,
+  .name2 {
+    font-size: 1.3rem;
+  }
+
+  .totalscore-1,
+  .totalscore-2 {
+    font-size: 2.4rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .crt {
+    font-size: 0.8rem;
+  }
+
+  .currentscore-2,
+  .currentscore-1 {
+    font-size: 1.2rem;
+  }
+
+  .current {
+    width: auto;
+    height: auto;
+    padding: 0.8rem 1.5rem;
+  }
+
+  .button {
+    font-size: 0.6rem;
+    padding: 0.1rem 0.5rem;
+    background-color: rgba(255, 255, 255, 0.792);
+    /* width: 15rem; */
+    margin: 0;
+    border-radius: 3.5rem;
+  }
+
+  .button::first-letter {
+    font-size: 1rem;
+    margin-right: 0.1rem;
+  }
+
+  .restartbtn {
+    top: 1.5rem;
+  }
+
+  .holdbtn {
+    top: 28rem;
+  }
+  .rolldicebtn {
+    top: 23rem;
+  }
+
+  .btn-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to top left, #54b9f8ef, #f26dd3ee);
+    padding: 0.3rem;
+    height: 4.5rem;
+    position: relative;
+  }
+
+  .rolldicebtn:active,
+  .holdbtn:active {
+    transform: translate(0%, 8px);
+  }
+
+  .restartbtn:active {
+    transform: translate(-50%, -58px);
+  }
+
+  .helpbtn:active {
+    transform: translate(60%, -45px);
+  }
+  .rolldicebtn,
+  .holdbtn {
+    position: static;
+    transform: translatex(0%);
+    transform: translateY(10%);
+  }
+
+  .restartbtn {
+    transform: translate(-50%, -220%);
+  }
+
+  .helpbtn {
+    font-size: 1rem;
+    border-radius: 50%;
+    padding: 0.1rem 0.7rem;
+  }
+
+  .help-text {
+    font-size: 0.8rem;
+    visibility: visible;
+    padding: 0.3rem 0.9rem;
+    top: 1.9rem;
+  }
+
+  .helpbtn:active {
+    transform: translate(23px, 85%);
+  }
+
+  .rules {
+    width: 65%;
+    font-size: 0.7rem;
+    padding: 1.6rem;
+  }
+  .close {
+    font-size: 2.1rem;
+  }
+
+  .winner-modal {
+    font-size: 1.1rem;
+  }
+
+  .welcome-modal {
+    font-size: 0.8rem;
+  }
+
+  .diceImg {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 45.5%;
+    left: 54%;
+    z-index: 2;
+  }
+}
