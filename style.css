@@ -75,7 +75,7 @@ body {
 .game {
   display: flex;
   flex-direction: row;
-  width: 75%;
+  width: 50%;
   height: 90%;
   position: relative;
   text-align: center;
@@ -99,7 +99,7 @@ body {
 .name1,
 .name2 {
   padding-bottom: 1rem;
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 
 .playeractive {
@@ -133,7 +133,7 @@ body {
 
 .currentscore-1,
 .currentscore-2 {
-  font-size: 2.5rem;
+  font-size: 2.3rem;
 }
 
 .current {
@@ -156,7 +156,7 @@ body {
   transform: translateX(-50%);
   font-family: inherit;
   font-size: 1.2rem;
-  padding: 0.8rem 2.5rem;
+  padding: 0.3rem 1.5rem;
   border: 1px solid rgba(255, 255, 255, 0.516);
   background-color: rgba(255, 255, 255, 0.378);
   backdrop-filter: blur(20px);
