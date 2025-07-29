@@ -21,6 +21,7 @@ body {
   font-family: "Merienda";
   position: relative;
   z-index: 1;
+  overflow-x: hidden;
 }
 .welcome-modal {
   position: absolute;
@@ -98,7 +99,7 @@ body {
 .name1,
 .name2 {
   padding-bottom: 1rem;
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 .playeractive {
@@ -119,20 +120,20 @@ body {
 
 .totalscore-1,
 .totalscore-2 {
-  font-size: 6rem;
+  font-size: 4rem;
   margin-bottom: 15rem;
   color: rgb(47, 46, 46);
 }
 
 .crt {
   padding-bottom: 1rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-align: center;
 }
 
 .currentscore-1,
 .currentscore-2 {
-  font-size: 2.8rem;
+  font-size: 2.5rem;
 }
 
 .current {
@@ -154,7 +155,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
   font-family: inherit;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   padding: 0.8rem 2.5rem;
   border: 1px solid rgba(255, 255, 255, 0.516);
   background-color: rgba(255, 255, 255, 0.378);
